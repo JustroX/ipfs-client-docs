@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "IPFS Client",
   tagline: "CS 198 project",
-  url: "https://your-docusaurus-test-site.com",
+  url: "https://ips-client-docs.netlify.com",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
