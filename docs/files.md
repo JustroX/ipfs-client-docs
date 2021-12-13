@@ -16,8 +16,8 @@ http://127.0.0.1:3000/api/files
 - `PUT /copy` - Copy file or directory
 - `POST /move` - Move file or directory
 - `DELETE /remove` - Remove file
-- `PUT /pin/:cid` - Pin locally
-- `DELETE /pin/:cid` - Unpin locally
+- ~~`PUT /pin/:cid` - Pin locally~~
+- ~~`DELETE /pin/:cid` - Unpin locally~~
 - `PUT /pin/pinata/:cid` - Pin remotely through Pinata
 - `DELETE /pin/pinata/:cid` - Unpin remotely through Pinata
 
@@ -102,7 +102,7 @@ List of `FileEntry`. Each instance of `FileEntry` have the following attributes:
 - type `"directory" | "file"` - Type of the entry.
 - size `number` - The size of the file in bytes.
 - cid `string` - The CID of the file
-- is_pinned `boolean` - Whether the current file is pinned locally.
+- ~~- is_pinned `boolean` - Whether the current file is pinned locally.~~
 - is_pinned_pinata `boolean` - Whether the current file is pinned in Pinata.
 
 ### 5. Copy file or directory
@@ -157,6 +157,8 @@ None
 
 ### 8. Pin locally
 
+**This is deprecated. Pinning locally is implicit using MFS**
+
 Pins a file locally.
 
 ```
@@ -172,6 +174,8 @@ PUT /pin/:cid
 None
 
 ### 9. Unpin locally
+
+**This is deprecated. Pinning locally is implicit using MFS**
 
 Unpins a file locally.
 
@@ -236,6 +240,7 @@ POST /bundle/upload/file
 - file `File` - The file to be uploaded
 - directory `string`- The MFS directory where the app will put the file.
 - passphrase `string`- The passphrase used to encrypt the file.
+- willSaveKey `boolean` - Indicates whether the passphrase will be saved
 
 #### Response
 
@@ -255,6 +260,7 @@ POST /bundle/upload/folder
 - name `string`- The name of the folder.
 - directory `string`- The MFS directory where the app will put the bundled files.
 - passphrase `string`- The passphrase used to encrypt the folder.
+- willSaveKey `boolean` - Indicates whether the passphrase will be saved
 
 #### Response
 
@@ -272,7 +278,7 @@ POST /bundle/:cid
 
 - cid `string` - The CID of the bundled file.
 - filename `string` - Desired filename of the downloaded file.
-- passphrase `string`- The passphrase used to decrypt the folder.
+- passphrase `string`- The passphrase used to decrypt the folder. This is optional if the passphrase was saved locally.
 
 #### Response
 
