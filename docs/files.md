@@ -104,6 +104,7 @@ List of `FileEntry`. Each instance of `FileEntry` have the following attributes:
 - cid `string` - The CID of the file
 - ~~- is_pinned `boolean` - Whether the current file is pinned locally.~~
 - is_pinned_pinata `boolean` - Whether the current file is pinned in Pinata.
+- is_pinned_pinata_queued `boolean` - Whether the current file is pinned in Pinata.
 
 ### 5. Copy file or directory
 
